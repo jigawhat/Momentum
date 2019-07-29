@@ -1,0 +1,39 @@
+{
+  "name": "Momentum",
+  "productName": "Momentum",
+  "version": "0.1.0",
+  "description": "Esports Virtual Personal Trainer",
+  "main": "main.js",
+  "private": true,
+  "author": "University College London",
+  "license": "ISC",
+  "keywords": [
+    "esports",
+    "ai",
+    "personal trainer"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/jigawhat/momentum.git"
+  },
+  "homepage": "https://gitlab.com/jigawhat/momentum#README",
+  "bugs": {
+    "url": "https://gitlab.com/jigawhat/momentum/issues"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "devDependencies": {
+    "electron": "^5.0.8",
+    "electron-auto-updater": "^1.0.0",
+    "electron-packager": "^14.0.3",
+    "electron-winstaller": "^4.0.0",
+    "update-electron-app": "^1.5.0"
+  },
+  "scripts": {
+    "start": "electron .",
+    "package-mac": "electron-packager . Momentum --overwrite --asar=true --platform=darwin --arch=x64 --icon=img/8ball.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . Momentum --overwrite --asar=true --platform=win32 --arch=x64 --icon=img/8ball.ico --prune=true --out=release-builds --version-string.CompanyName=UCL --version-string.FileDescription=UCLMomentum --version-string.ProductName=\"Momentum\"",
+    "create-winstaller": "node installers/create_winstaller.js"
+  }
+}
