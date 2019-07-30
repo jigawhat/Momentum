@@ -10,7 +10,10 @@ const path = require('path');
 const url = require('url');
 
 // Autoupdate
-require('update-electron-app')();
+require('update-electron-app')({
+  updateInterval: '1 hour',
+  notifyUser: true
+})
 
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
