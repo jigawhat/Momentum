@@ -1,9 +1,12 @@
-node_modules/
 
+
+# Release binaries
 release-builds/
-
 dist/
 
+
+# Node packages
+node_modules/
 
 # Logs
 logs
