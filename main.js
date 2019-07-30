@@ -1,19 +1,13 @@
-//handle setupevents as quickly as possible
- const setupEvents = require('./installers/setupEvents')
- if (setupEvents.handleSquirrelEvent()) {
-    // squirrel event handled and app will exit in 1000ms, so don't do anything else
-    return;
- }
+// //handle setupevents as quickly as possible
+//  const setupEvents = require('./installers/setupEvents')
+//  if (setupEvents.handleSquirrelEvent()) {
+//     // squirrel event handled and app will exit in 1000ms, so don't do anything else
+//     return;
+//  }
 
 const electron = require('electron');
 const path = require('path');
 const url = require('url');
-
-// Autoupdate
-require('update-electron-app')({
-  updateInterval: '1 hour',
-  notifyUser: true
-})
 
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -113,6 +107,7 @@ if (!gotTheLock) {
 
   // Create window, load the rest of the app, etc...
   // app.setAppUserModelId(process.execPath);
+  app.setAppUserModelId("com.ucl.momentum");
 
   app.on('ready', createWindow);  // Create window
 
