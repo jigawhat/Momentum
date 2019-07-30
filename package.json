@@ -1,7 +1,7 @@
 {
   "name": "Momentum",
   "productName": "Momentum",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Esports Virtual Personal Trainer",
   "main": "main.js",
   "private": true,
@@ -28,13 +28,16 @@
     "directories": {
       "buildResources": "resources"
     },
-    "publish": ["github"]
+    "publish": [
+      "github"
+    ]
   },
   "dependencies": {
+    "electron-updater": "^4.1.2"
   },
   "devDependencies": {
-    "electron-builder": "^21.1.5",
-    "electron": "^5.0.8"
+    "electron": "^5.0.8",
+    "electron-builder": "^21.1.5"
   },
   "scripts": {
     "start": "electron .",

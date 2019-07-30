@@ -6,8 +6,11 @@
 //  }
 
 const electron = require('electron');
+const { autoUpdater } = require("electron-updater");
 const path = require('path');
 const url = require('url');
+
+autoUpdater.checkForUpdatesAndNotify();
 
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
