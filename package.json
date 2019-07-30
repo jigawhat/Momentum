@@ -1,13 +1,12 @@
 {
   "name": "Momentum",
   "productName": "Momentum",
-  "version": "0.1.1",
+  "version": "0.1.0-b2",
   "description": "Esports Virtual Personal Trainer",
   "main": "main.js",
-  "private": true,
   "author": "University College London",
   "copyright": "© 2019 Alfonso White",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "keywords": [
     "esports",
     "ai",
@@ -42,6 +41,8 @@
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder",
+    "build": "electron-builder build",
+    "publish": "electron-builder build -p \"always\""
   }
 }
