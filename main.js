@@ -52,7 +52,6 @@ function sendNotif() {
   });
 
   pr_fl('notif sent');
-  pr_fl(icopath);
 
 
   notif.show();
@@ -65,8 +64,9 @@ function createWindow() {
   const contextMenu = Menu.buildFromTemplate([
     {label: 'Open', type: 'normal', click: function (item, window, event) {win.show();}},
     {label: 'Settings', type: 'normal'},
-    {label: 'Quiet mode', type: 'checkbox', checked: false},
     {label: 'sep1', type: 'separator'},
+    {label: 'Quiet mode', type: 'checkbox', checked: false},
+    {label: 'sep2', type: 'separator'},
     {label: 'Quit', click: function (item, window, event) {app.exit();}}
   ]);
   tray.setToolTip('Momentum: +5%');
