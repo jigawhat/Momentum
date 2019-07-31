@@ -10,7 +10,9 @@ const { autoUpdater } = require("electron-updater");
 const path = require('path');
 const url = require('url');
 
-autoUpdater.checkForUpdatesAndNotify();
+// log = require('electron-log');
+// log.transports.file.level = 'silly';
+// log.transports.console.level = 'silly';
 
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -37,6 +39,8 @@ function sendNotif() {
     body: 'Try taking a break. Play some TFT!',
     icon: nativeImage.createFromPath(info_ico)
   });
+
+  win.webContents.send('message', 'notif sent')
 
   notif.show();
 }
@@ -78,6 +82,8 @@ function createWindow() {
     return false;
   });
   win.removeMenu();
+
+  autoUpdater.checkForUpdatesAndNotify();
 
   win.loadURL(url.format({ // Load index.html
     pathname: path.join(__dirname, 'index.html'),
@@ -126,12 +132,36 @@ if (!gotTheLock) {
     if (win === null) {
       createWindow();
     }
-  })
+  });
+
+  autoUpdater.on('checking-for-update', () => {
+    win.webContents.send('message','Checking for update...');
+  });
+
+  autoUpdater.on('update-available', (info) => {
+    win.webContents.send('message','Update available.');
+  });
+
+  autoUpdater.on('update-not-available', (info) => {
+    win.webContents.send('message','Update not available.');
+  });
+
+  autoUpdater.on('error', (err) => {
+    win.webContents.send('message','Error in auto-updater. ' + err);
+  });
+
+  autoUpdater.on('download-progress', (progressObj) => {
+    // let log_message = "Download speed: " + progressObj.bytesPerSecond
+    // log_message = log_message + ' - Downloaded ' + progressObj.percent + '%'
+    // log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')'
+    // win.webContents.send('message',log_message)
+
+    win.webContents.send('message','download-progress', progressObj.percent);
+  });
+
+  autoUpdater.on('update-downloaded', (info) => {
+    win.webContents.send('message','Update downloaded');
+  });
 }
-
-
-
-
-
 
 

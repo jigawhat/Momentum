@@ -11,13 +11,19 @@
   <body>
     <div class="container">
       <h1>Momentum</h1>
-      v0.1.0-b2 test2 draft<br />
-      new version!
+      v0.1.1<br />
+      plZ work
       <div id="output"></div>
     </div>
     <button id='notif' onclick='counter++; console.log(counter); sendNotif();'>Add 1</button>
   </body>
   <script>
+    const ipc = require('electron').ipcRenderer;
+
+    ipc.on('message', (event, message) => {
+        console.log(message); // logs out "Hello second window!"
+    })
+
     console.log(process);
 
     function sendNotif() {
@@ -29,5 +35,6 @@
         console.log('Notification clicked');
       }
     }
+
   </script>
 </html>
