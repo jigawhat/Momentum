@@ -22,8 +22,12 @@ const Notification = electron.Notification;
 const nativeImage = electron.nativeImage;
 
 // Constants
-const icopath = __dirname+'/img/8ball.ico';
-const info_ico = __dirname+'/img/8ball_info.ico';
+const icon_ext = process.platform !== 'darwin' ? '.ico' : '.icns';
+const icopath = __dirname + '/img/8ball' + icon_ext;
+const icopath_png16 = __dirname + '/img/uncompressed/8ball_16.png';
+const info_ico = __dirname + '/img/8ball_info' + icon_ext;
+const ico_img = nativeImage.createFromPath(icopath);
+const info_ico_img = nativeImage.createFromPath(info_ico);
 
 const gotTheLock = app.requestSingleInstanceLock();
 
@@ -44,10 +48,12 @@ function sendNotif() {
   notif = new Notification({
     title: 'Looks like you\'re tilted...',
     body: 'Try taking a break. Play some TFT!',
-    icon: nativeImage.createFromPath(info_ico)
+    icon: info_ico_img
   });
 
   pr_fl('notif sent');
+  pr_fl(icopath);
+
 
   notif.show();
 }
@@ -55,8 +61,10 @@ function sendNotif() {
 function createWindow() {
 
   // Create system tray menu
-  tray = new Tray(icopath);
+  tray = new Tray(process.platform !== 'darwin' ? ico_img : icopath_png16);
   const contextMenu = Menu.buildFromTemplate([
+    {label: 'Open', type: 'normal', click: function (item, window, event) {win.show();}},
+    {label: 'Settings', type: 'normal'},
     {label: 'Quiet mode', type: 'checkbox', checked: false},
     {label: 'sep1', type: 'separator'},
     {label: 'Quit', click: function (item, window, event) {app.exit();}}
@@ -72,7 +80,7 @@ function createWindow() {
   win = new BrowserWindow({
     width: 800,
     height: 600,
-    icon: icopath,
+    icon: ico_img,
     webPreferences: {
       nodeIntegration: true
     }
@@ -105,6 +113,7 @@ function createWindow() {
   //   win = null;
   // })
 
+  pr_fl(icopath);
   setTimeout(sendNotif, 3000);
 }
 
@@ -138,7 +147,14 @@ if (!gotTheLock) {
     // dock icon is clicked and there are no other windows open.
     if (win === null) {
       createWindow();
+    } else {
+      win.show();
     }
+  });
+
+  app.on('before-quit', (event) => {
+    event.preventDefault();
+    app.exit();
   });
 
   autoUpdater.on('checking-for-update', () => {
