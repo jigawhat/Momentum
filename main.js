@@ -32,6 +32,13 @@ let win;
 let tray;
 
 
+function pr_fl(obj) {
+
+  win.webContents.send('message', obj);
+
+}
+
+
 // Function library (todo: make new file)
 function sendNotif() {
   notif = new Notification({
@@ -40,7 +47,7 @@ function sendNotif() {
     icon: nativeImage.createFromPath(info_ico)
   });
 
-  win.webContents.send('message', 'notif sent')
+  pr_fl('notif sent');
 
   notif.show();
 }
@@ -135,32 +142,32 @@ if (!gotTheLock) {
   });
 
   autoUpdater.on('checking-for-update', () => {
-    win.webContents.send('message','Checking for update...');
+    pr_fl('Checking for update...');
   });
 
   autoUpdater.on('update-available', (info) => {
-    win.webContents.send('message','Update available.');
+    pr_fl('Update available.');
   });
 
   autoUpdater.on('update-not-available', (info) => {
-    win.webContents.send('message','Update not available.');
+    pr_fl('Update not available.');
   });
 
   autoUpdater.on('error', (err) => {
-    win.webContents.send('message','Error in auto-updater. ' + err);
+    pr_fl('Error in auto-updater. ' + err);
   });
 
   autoUpdater.on('download-progress', (progressObj) => {
     // let log_message = "Download speed: " + progressObj.bytesPerSecond
     // log_message = log_message + ' - Downloaded ' + progressObj.percent + '%'
     // log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')'
-    // win.webContents.send('message',log_message)
+    // pr_fl(log_message)
 
-    win.webContents.send('message','download-progress', progressObj.percent);
+    pr_fl('download-progress', progressObj.percent);
   });
 
   autoUpdater.on('update-downloaded', (info) => {
-    win.webContents.send('message','Update downloaded');
+    pr_fl('Update downloaded');
   });
 }
 

@@ -1,7 +1,7 @@
 {
   "name": "Momentum",
   "productName": "Momentum",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Esports Virtual Personal Trainer",
   "main": "main.js",
   "author": "University College London",
@@ -44,6 +44,6 @@
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "build": "electron-builder build",
-    "release": "electron-builder build -p \"always\""
+    "ship": "electron-builder build -p \"always\""
   }
 }
