@@ -48,6 +48,7 @@ function sendNotif() {
   notif = new Notification({
     title: 'Looks like you\'re tilted...',
     body: 'Try taking a break. Play some TFT!',
+    silent: true,
     icon: info_ico_img
   });
 
@@ -65,7 +66,8 @@ function createWindow() {
     {label: 'Open', type: 'normal', click: function (item, window, event) {win.show();}},
     {label: 'Settings', type: 'normal'},
     {label: 'sep1', type: 'separator'},
-    {label: 'Quiet mode', type: 'checkbox', checked: false},
+    {label: 'Quiet mode', type: 'checkbox', checked: false, enabled: false},
+    {label: 'Disable notifications', type: 'checkbox', checked: false},
     {label: 'sep2', type: 'separator'},
     {label: 'Quit', click: function (item, window, event) {app.exit();}}
   ]);
@@ -78,8 +80,9 @@ function createWindow() {
 
   // Create browser window
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    // width: 640 + 350,
+    width: 640,
+    height: 480,
     icon: ico_img,
     webPreferences: {
       nodeIntegration: true
@@ -107,7 +110,7 @@ function createWindow() {
   }));
 
   // Open devtools
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools();
 
   // win.on('closed', () => {
   //   win = null;

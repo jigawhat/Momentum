@@ -1,0 +1,187 @@
+body {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+#toprow {
+  display: block;
+  position: relative;
+  border-width: 1px;
+  border-color: rgba(0,0,0,0);
+  border-style: solid;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  height: 110px;
+  background-color: #272530;
+}
+#banner_cont {
+  display: inline-block;
+  position: relative;
+  float: left;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  top: 0;
+  left: 0;
+  /*display: block;*/
+  /*position: relative;*/
+  /*border-width: 1px;*/
+  /*border-color: #fff;*/
+  /*border-style: solid;*/
+  width: 250px;
+  margin-left: 40px;
+  /*border-width: 1px;*/
+  /*border-color: #fff;*/
+  /*border-style: solid;*/
+}
+#banner_img {
+  margin-top: 40px;
+  display: inline-block;
+  position: relative;
+  float: left;
+  height: 32px;
+  width: 32px;
+  /*background: url("img/uncompressed/8ball_32.png") 0 0 no-repeat;*/
+  /*background-size: 13px;*/
+  /*background-position: center;*/
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 1.0), 0px 0px 15px rgba(255, 255, 255, 0.7), 0px 0px 35px rgba(255, 255, 255, 0.7), 0px 0px 50px rgba(170, 150, 255, 0.5), 0px 0px 90px rgba(220, 190, 255, 0.4),
+    0px 0px 100px rgba(220, 190, 255, 0.7), 0px 0px 150px rgba(220, 190, 255, 0.7), 0px 0px 157px rgba(220, 190, 255, 0.6),
+    0px 0px 175px rgba(220, 190, 255, 0.5), 0px 0px 185px rgba(220, 190, 255, 1.0), 0px 0px 195px rgba(220, 190, 255, 1.0),
+    0px 0px 220px rgba(220, 190, 255, 1.0), 0px 0px 153px rgba(220, 190, 255, 1.0);
+  /*box-shadow: 0px 0px 7px rgba(0, 0, 0, 1.0), 0px 0px 20px rgba(255, 255, 255, 1.0), 0px 0px 50px rgba(170, 150, 255, 0.5), 0px 0px 90px rgba(220, 190, 255, 0.4),
+     0px 0px 157px rgba(220, 190, 255, 0.6),
+    0px 0px 175px rgba(220, 190, 255, 0.5),0px 0px 195px rgba(220, 190, 255, 1.0),
+    0px 0px 220px rgba(220, 190, 255, 1.0), 0px 0px 153px rgba(220, 190, 255, 1.0);0px 0px 6px rgba(25, 10, 50, 1.0), */
+  z-index: 1;
+  /*border-width: 1px;*/
+  /*border-color: #fff;*/
+  /*border-style: solid;*/
+}
+#banner_img_img {
+  /*border-width: 1px;*/
+  /*border-color: #fff;*/
+  /*border-style: solid;*/
+  display: block;
+  position: relative;
+  float: left;
+  height: 32px;
+  width: 32px;
+  background: url("img/uncompressed/8ball_32.png") 0 0 no-repeat;
+  /*background-size: 13px;*/
+  /*background-position: center;*/
+  z-index: 3;
+}
+#banner_text {
+  display: inline-block;
+  position: relative;
+  /*float: right;*/
+  /*border-width: 1px;*/
+  /*border-color: #fff;*/
+  /*border-style: solid;*/
+}
+#banner_header {
+  display: block;
+  position: relative;
+  /*height: 30px;*/
+  /*vertical-align: bottom;*/
+  /*line-height: 35px;*/
+  margin-left: 8px;
+  top: 6px;
+}
+#version {
+  display: block;
+  position: relative;
+  /*border-width: 1px;*/
+  /*border-color: #fff;*/
+  /*border-style: solid;*/
+  /*top: 7px;*/
+  margin-left: 8px;
+  bottom: 2px;
+  font-size: 10px;
+}
+#header_buttons {
+  display: inline-block;
+  position: relative;
+  float: right;
+  margin-top: 25px;
+  margin-right: 20px;
+  width: 40px;
+  /*height: 100%;*/
+  /*border-width: 1px;*/
+  /*border-color: #fff;*/
+  /*border-style: solid;*/
+}
+#settings_button_cont {
+  display: inline-block;
+  position: relative;
+  float: left;
+  /*margin-left: 20px;*/
+  height: 32px;
+  width: 32px;
+  /*border-width: 1px;*/
+  /*border-color: #fff;*/
+  /*border-style: solid;*/
+  z-index: 10;
+}
+#settings_button {
+  height: 32px;
+  width: 32px;
+  /*border-width: 1px;*/
+  /*border-color: #fff;*/
+  /*border-style: solid;*/
+  /*margin-right: 15px;*/
+  background: url("img/cog.png") 0 0 no-repeat;
+  z-index: 10;
+}
+#settings_button:hover {
+  /*background-color: #353565;*/
+  box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.9), 0px 0px 3px rgba(255, 255, 255, 0.9);
+}
+#settings_button:active {
+  /*background-color: #353565;*/
+  box-shadow: 0px 0px 3px rgba(215, 210, 255, 0.9), 0px 0px 3px rgba(215, 210, 255, 0.9);
+}
+#qm_checkbox_cont {
+  display: block;
+  position: relative;
+  top: 10px;
+  font-size: 11px;
+  /*vertical-align: center;*/
+  /*line-height: 13px;*/
+}
+#qm_checkbox {
+  display: inline-block;
+  position: relative;
+  bottom: 1px;
+}
+#bell_img {
+  display: inline-block;
+  position: relative;
+  height: 16px;
+  width: 16px;
+  /*border-width: 1px;*/
+  /*border-color: #fff;*/
+  /*border-style: solid;*/
+  /*margin-right: 15px;*/
+  background: url("img/bell_off_w.png") 0 0 no-repeat;
+}
+
+#middlerow {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  top: 0;
+  left: 0;
+  display: block;
+  position: relative;
+  z-index: 100;
+  background-color: #1D1D22;
+  height: 300px;
+}
