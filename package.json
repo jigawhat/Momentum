@@ -39,6 +39,7 @@
     }
   },
   "dependencies": {
+    "electron-json-storage": "^4.1.6",
     "electron-log": "^3.0.6",
     "electron-updater": "^4.1.2"
   },

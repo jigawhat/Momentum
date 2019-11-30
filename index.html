@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Momentum</title>
     <link rel="stylesheet" href="styles/bootstrap.css">
     <link rel="stylesheet" href="index.css">
-    <script>
-      var counter = 0;
-    </script>
+
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+    <script src="jquery/jquery-3.3.1.min.js"></script>
+    <script src="jquery/jquery-ui.js"></script>
+    <script src="jquery-animateNumber-0.0.14/jquery.animateNumber.js"></script>
+
+    <script src="utils.js"></script>
+    <script src="constants.js"></script>
+    <script src="index.js"></script>
+
+    <script>if (window.module) module = window.module;</script>
   </head>
   <body>
     <div id="toprow">
@@ -20,34 +29,14 @@
       </div>
       <div id="header_buttons">
         <div id="settings_button_cont"><div id="settings_button"></div></div>
-        <div id="qm_checkbox_cont"><label><input id="qm_checkbox" type="checkbox" /> <div id="bell_img"></div></label></div>
+        <div id="toggles_cont"><div id="notifs_toggle"></div><div id="sounds_toggle"></div></div>
       </div>
     </div>
     <div id="middlerow">
       blah
     </div>
     <div id="footerrow">
-      Server status: Online
+      <!-- Server status: Online -->
     </div>
   </body>
-  <script>
-    const ipc = require('electron').ipcRenderer;
-
-    ipc.on('message', (event, message) => {
-        console.log(message); // logs out "Hello second window!"
-    });
-
-    console.log(process);
-
-    function sendNotif() {
-      let myNotification = new Notification('Title', {
-        body: 'Lorem Ipsum Dolor Sit Amet'
-      })
-
-      myNotification.onclick = () => {
-        console.log('Notification clicked');
-      }
-    }
-
-  </script>
 </html>
